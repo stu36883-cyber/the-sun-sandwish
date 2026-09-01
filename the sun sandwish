@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandwichie 🥪💕</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:Arial,sans-serif;
+      background:#fff7f4;
+      color:#5b4650;
+    }
+
+    header{
+      background:linear-gradient(135deg,#ffd6e2,#ffe8c7);
+      padding:35px 20px;
+      text-align:center;
+      border-radius:0 0 35px 35px;
+    }
+
+    .logo{
+      font-size:55px;
+    }
+
+    h1{
+      color:#c9688d;
+      font-size:38px;
+      margin-top:5px;
+    }
+
+    header p{
+      margin-top:8px;
+      color:#7b6670;
+    }
+
+    .container{
+      max-width:700px;
+      margin:auto;
+      padding:20px 15px;
+    }
+
+    .card{
+      background:white;
+      border-radius:22px;
+      padding:20px;
+      margin-bottom:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+      border:2px solid #f8dce6;
+    }
+
+    h2{
+      color:#bb6280;
+      margin-bottom:15px;
+    }
+
+    .menu{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .item{
+      border:2px solid #f3dfe6;
+      border-radius:16px;
+      padding:15px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
+      transition:.2s;
+      background:#fffafa;
+    }
+
+    .item:hover{
+      transform:scale(1.01);
+    }
+
+    .selected{
+      background:#fff0f5;
+      border-color:#ef98b4;
+    }
+
+    .price{
+      background:#ffdce7;
+      padding:6px 10px;
+      border-radius:20px;
+      color:#b64f72;
+      font-weight:bold;
+    }
+
+    input[type=radio]{
+      width:20px;
+      height:20px;
+      accent-color:#e889a8;
+    }
+
+    .egg{
+      background:#fff8df;
+      border-radius:15px;
+      padding:15px;
+      margin-top:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:17px;
+    }
+
+    .egg input{
+      width:22px;
+      height:22px;
+      accent-color:#e889a8;
+    }
+
+    .quantity{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:20px;
+      margin:20px 0;
+    }
+
+    .quantity button{
+      width:45px;
+      height:45px;
+      border:none;
+      border-radius:50%;
+      background:#ffd2df;
+      color:#a94f70;
+      font-size:26px;
+      cursor:pointer;
+    }
+
+    .quantity span{
+      font-size:28px;
+      font-weight:bold;
+    }
+
+    .total{
+      background:#fff0f5;
+      border-radius:18px;
+      text-align:center;
+      padding:18px;
+      font-size:20px;
+    }
+
+    .total strong{
+      font-size:34px;
+      color:#d45d86;
+    }
+
+    label{
+      display:block;
+      margin-top:15px;
+      font-weight:bold;
+      color:#765b66;
+    }
+
+    input[type=text],
+    textarea{
+      width:100%;
+      margin-top:7px;
+      padding:13px;
+      border-radius:14px;
+      border:2px solid #f0dfe5;
+      font-size:16px;
+    }
+
+    textarea{
+      min-height:90px;
+      resize:vertical;
+    }
+
+    .order{
+      width:100%;
+      margin-top:20px;
+      padding:16px;
+      border:none;
+      border-radius:16px;
+      background:linear-gradient(135deg,#ef91af,#d96f94);
+      color:white;
+      font-size:20px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .order:hover{
+      opacity:.9;
+    }
+
+    #message{
+      text-align:center;
+      margin-top:15px;
+      font-weight:bold;
+      color:#55a477;
+      line-height:1.5;
+    }
+
+    .footer{
+      text-align:center;
+      color:#9c8b91;
+      font-size:13px;
+      padding:15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🥪💕</div>
+  <h1>Sandwichie</h1>
+  <p>แซนวิชน่ารัก ๆ อร่อยทุกคำ ♡</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>🌷 เลือกไส้</h2>
+
+    <div class="menu">
+
+      <label class="item selected" id="bolo">
+        <div>
+          🥓 <b>โบโลน่า</b>
+        </div>
+
+        <div>
+          <span class="price">30 บาท</span>
+          <input type="radio" name="flavor" value="โบโลน่า" checked>
+        </div>
+      </label>
+
+      <label class="item" id="hotdog">
+        <div>
+          🌭 <b>ฮอทดอก</b>
+        </div>
+
+        <div>
+          <span class="price">30 บาท</span>
+          <input type="radio" name="flavor" value="ฮอทดอก">
+        </div>
+      </label>
+
+      <label class="item" id="crab">
+        <div>
+          🦀 <b>ปูอัดไข่กุ้ง</b>
+        </div>
+
+        <div>
+          <span class="price">30 บาท</span>
+          <input type="radio" name="flavor" value="ปูอัดไข่กุ้ง">
+        </div>
+      </label>
+
+    </div>
+
+    <h2 style="margin-top:25px">🥚 เพิ่มไข่</h2>
+
+    <div class="egg">
+      <input type="checkbox" id="egg">
+      <span>เพิ่มไข่ +5 บาท / ชิ้น</span>
+    </div>
+
+    <h2 style="margin-top:25px">🧺 จำนวน</h2>
+
+    <div class="quantity">
+      <button onclick="minus()">−</button>
+
+      <span id="qty">1</span>
+
+      <button onclick="plus()">+</button>
+    </div>
+
+    <div class="total">
+      ยอดรวม 💗
+
+      <br>
+
+      <strong id="total">30 บาท</strong>
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>💌 ข้อมูลลูกค้า</h2>
+
+    <label>ชื่อลูกค้า</label>
+    <input type="text" id="name" placeholder="เช่น น้องมายด์">
+
+    <label>ช่องทางการติดต่อ</label>
+    <input type="text" id="contact" placeholder="LINE / Facebook / เบอร์โทร">
+
+    <label>หมายเหตุ</label>
+    <textarea id="note" placeholder="เช่น รับตอนพักกลางวัน ไม่ใส่ผัก"></textarea>
+
+    <button class="order" onclick="sendOrder()">
+      💗 สั่งแซนวิชเลย!
+    </button>
+
+    <div id="message"></div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  Made with 💕 Sandwichie
+</div>
+
+<script>
+
+let quantity = 1;
+
+const radios = document.querySelectorAll('input[name="flavor"]');
+
+radios.forEach(radio => {
+  radio.addEventListener("change", function(){
+
+    document.querySelectorAll(".item").forEach(item=>{
+      item.classList.remove("selected");
+    });
+
+    this.parentElement.parentElement.classList.add("selected");
+
+  });
+});
+
+function plus(){
+  quantity++;
+  document.getElementById("qty").innerText = quantity;
+  calculate();
+}
+
+function minus(){
+  if(quantity>1){
+    quantity--;
+    document.getElementById("qty").innerText = quantity;
+    calculate();
+  }
+}
+
+document.getElementById("egg").addEventListener("change",calculate);
+
+function calculate(){
+
+  let price = 30;
+
+  if(document.getElementById("egg").checked){
+    price += 5;
+  }
+
+  let total = price * quantity;
+
+  document.getElementById("total").innerText = total + " บาท";
+
+}
+
+function sendOrder(){
+
+  let name = document.getElementById("name").value.trim();
+
+  if(name==""){
+    alert("กรุณากรอกชื่อลูกค้าก่อนนะคะ 💕");
+    return;
+  }
+
+  let flavor = document.querySelector('input[name="flavor"]:checked').value;
+
+  let egg = document.getElementById("egg").checked ? "เพิ่มไข่" : "ไม่เพิ่มไข่";
+
+  let contact = document.getElementById("contact").value;
+
+  let note = document.getElementById("note").value;
+
+  let total = document.getElementById("total").innerText;
+
+  document.getElementById("message").innerHTML =
+  "🥪 สั่งซื้อสำเร็จแล้ว!<br>" +
+  "คุณ " + name + "<br>" +
+  flavor + " (" + egg + ")<br>" +
+  "จำนวน " + quantity + " ชิ้น<br>" +
+  "ยอดรวม " + total;
+
+}
+
+</script>
+
+</body>
+</html>
